@@ -12,7 +12,6 @@ function _criaTabela() {
         const sqlCreateTable = 'CREATE TABLE IF NOT EXISTS people (id int not null auto_increment, name varchar(255), primary key (id));'
         connection.query(sqlCreateTable, function (error, results, fields) {
             if (error) reject(error);
-            console.log(results);
             resolve(results);
         })
         connection.end()
@@ -25,7 +24,6 @@ function _insereDadosTabela() {
         const sql = `INSERT INTO people (name) VALUES ('Tobias')`
         connection.query(sql, function (error, results, fields) {
             if (error) reject(error);
-            console.log(results);
             resolve(results);
         })
         connection.end()
@@ -43,7 +41,6 @@ function consultaPessoas() {
         const sql = `SELECT * FROM people`
         connection.query(sql, function (error, results, fields) {
             if (error) reject(error);
-            console.log(results);
             resolve(results);
         })
         connection.end()
