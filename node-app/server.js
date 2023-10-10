@@ -17,10 +17,12 @@ app.get('/', async (req, res) => {
   try {
     const resultado = await dbRepository.consultaPessoas()
     const nomes = resultado.map((row) => row.name);
-    console.log(nomes)
+    const itens = nomes.map((nome) => `<li>${nome}</li>`)
     const html = `
     <h1>Full Cycle Rocks!</h1>
-    ${nomes}
+    <ul>
+    ${itens.join('\n')}
+    </ul>
   `
     res.send(html);
   } catch (error) {
