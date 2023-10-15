@@ -22,6 +22,9 @@ services:
       dockerfile: Dockerfile
     image: tobiasrdm/node-app:prod
     container_name: app
+    command: "./start-dev.sh"
+    volumes:
+      - ./node-app/:/usr/src/app
     networks:
       - node-network
     tty: true
